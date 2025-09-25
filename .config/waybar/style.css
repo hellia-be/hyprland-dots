@@ -1,0 +1,64 @@
+/* Variables */
+@define-color bar-bg #000000;
+@define-color bar-fg #d9d9d9;
+@define-color alt-fg #a6a6a6;
+
+window#waybar {
+	margin: 0;
+	padding: 0;
+	background: @main-bg;
+}
+
+window#waybar.top .modules-left,
+window#waybar.top .modules-center,
+window#waybar.top .modules-right {
+	margin: 0;
+	padding: 0;
+}
+
+window#waybar.top #pill,
+window#waybar.top #pill-left,
+window#waybar.top #pill-right,
+window#waybar.top #pill-up,
+window#waybar.top #pill-down,
+window#waybar.top #pill-in,
+window#waybar.top #pill-out {
+	margin: 0;
+	padding: 0;
+}
+
+window#waybar.top button {
+	margin: 0;
+	border: 0;
+}
+
+#pill\#right1,
+#pill\#right2 {
+	margin-right: 8px;
+	padding-right: 8px;
+}
+
+#pill\#right3 {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.module {
+	color: @main-fg;
+}
+
+#workspaces button {
+	box-shadow: none;
+	text-shadow: none;
+	color: @main-fg;
+}
+
+#workspaces button.active {
+	color: @alt-fg;
+}
+
+* {
+	border: none;
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 11px;
+}
