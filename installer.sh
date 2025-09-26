@@ -89,7 +89,7 @@ packages=(
   "zoxide"
 )
 
-for package in "${package[@]}"; do
+for package in "${packages[@]}"; do
   yay -S "$package"
   if [[ $? -ne 0 ]]; then
     exit 1
