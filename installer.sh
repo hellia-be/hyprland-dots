@@ -49,7 +49,6 @@ packages=(
   "jq"
   "jre-openjdk"
   "kdeconnect"
-  "kvantum"
   "ly"
   "man-db"
   "megasync-bin"
