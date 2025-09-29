@@ -1,5 +1,27 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+# Hyprland dotfiles setup script for Arch Linux
+# This script performs the core setup, installs packages, detects GPU, and links configs
+# for a multi-device Arch + Hyprland environment (Nvidia and AMD)
+
+set -e # Exit immediately if a command exits with a non-zero status
+
+## Variables
+dotfiles_dir=$(pwd)
+config_dir="$HOME/.config"
+bin_dir="$HOME/.local/bin"
+
+## Functions
+# Package Removal
+safe_remove() {
+  local pkg_name="$1"
+  if pacman -Q "$pkg_name" &> /dev/null; then
+    sudo pacman -Rns "$pkg_name" --noconfirm || true
+  fi
+}
+
+# Step 1: Removing unneeded packages
+echo "=> Removing unneeded packages..."
 packages=(
   "dolphin"
   "dunst"
@@ -10,18 +32,19 @@ packages=(
 )
 
 for package in "${packages[@]}"; do
-  sudo pacman -Rns "$package"
-  if [[ $? -ne 0 ]]; then
-    exit 1
-  fi
+  safe_remove "$package"
 done
 
+# Step 2: Installing yay-bin
+echo "=> Installing yay..."
 mkdir -p $HOME/Documents/git
 sudo pacman -S git
 cd $HOME/Documents/git/
 git clone https://aur.archlinux.org/yay-bin
 cd yay-bin && makepkg -si
 
+# Step 3: Installing required packages
+echo "=> Installing packages..."
 packages=(
   "7zip"
   "bat"
@@ -94,3 +117,41 @@ for package in "${packages[@]}"; do
     exit 1
   fi
 done
+
+# Step 4: Installing lazyvim
+echo "=> Installing lazyvim..."
+rm -rf "$config_dir/nvim"
+rm -rf "$HOME/.local/share/nvim"
+rm -rf "$HOME/.local/state/nvim"
+rm -rf "$HOME/.cache/nvim"
+git clone https://github.com/LazyVim/starter "$config_dir/nvim"
+rm -rf "$config_dir/nvim/.git"
+
+# Step 5: Creating required directories
+echo "=> Creating directories..."
+mkdir -p "$config_dir/{fuzzel,hypr,kitty,nvim/colors,satty,waybar,yazi,ohmyposh}"
+mkdir -p "$bin_dir"
+mkdir -p "$HOME/Documents/git/fzf"
+
+# Step 6: Putting files in the right places
+echo "=> Placing files..."
+ln -sf "$dotfiles_dir/.bashrc" "$HOME/.bashrc"
+ln -sf "$dotfiles_dir/.config/fuzzel/fuzzel.ini" "$config_dir/fuzzel/fuzzel.ini"
+ln -sf "$dotfiles_dir/.config/hypr/hyprland.conf" "$config_dir/hypr/hyprland.conf"
+ln -sf "$dotfiles_dir/.config/kitty/kitty.conf" "$config_dir/kitty/kitty.conf"
+ln -sf "$dotfiles_dir/.config/nvim/init.lua" "$config_dir/nvim/init.lua"
+ln -sf "$dotfiles_dir/.config/nvim/colors/minimal.lua" "$config_dir/nvim/colors/minimal.lua"
+ln -sf "$dotfiles_dir/.config/satty/config.toml" "$config_dir/satty/config.toml"
+ln -sf "$dotfiles_dir/.config/waybar/config.jsonc" "$config_dir/waybar/config.jsonc"
+ln -sf "$dotfiles_dir/.config/waybar/style.css" "$config_dir/waybar/style.css"
+ln -sf "$dotfiles_dir/.config/yazi/keymap.toml" "$config_dir/yazi/keymap.toml"
+ln -sf "$dotfiles_dir/.config/yazi/yazi.toml" "$config_dir/yazi/yazi.toml"
+ln -sf "$dotfiles_dir/.local/bin/powermenu.sh" "$bin_dir/powermenu.sh"
+chmod +x "$bin_dir/powermenu.sh"
+cp "$dotfiles_dir/.local/bin/create-protected-zip.sh" "$bin_dir/create-protected-zip.sh"
+chmod +x "$bin_dir/create-protected-zip.sh"
+cp "$dotfiles_dir/.local/bin/mount-smb-share.sh" "$bin_dir/mount-smb-share.sh"
+chmod +x "$bin_dir/mount-smb=share.sh"
+ln -sf "$dotfiles_dir/fzf/fzf-git.sh" "$HOME/Documents/git/fzf/fzf-git.sh"
+chmod +x "$HOME/Documents/git/fzf/fzf-git.sh"
+ln -sf "$dotfiles_dir/ohmyposh/EDM115-newline.omp.json" "$config_dir/ohmyposh/EDM115-newline.omp.json"
