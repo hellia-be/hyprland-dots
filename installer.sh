@@ -41,7 +41,7 @@ mkdir -p $HOME/Documents/git
 sudo pacman -S git
 cd $HOME/Documents/git/
 git clone https://aur.archlinux.org/yay-bin
-cd yay-bin && makepkg -si
+cd yay-bin && makepkg --noconfirm -si
 
 # Step 3: Installing required packages
 echo "=> Installing packages..."
