@@ -41,7 +41,6 @@ packages=(
   "fzf"
   "gimp"
   "glances"
-  "graphite-gtk-theme-rimless-normal-git"
   "grim"
   "gvfs"
   "gvfs-smb"
