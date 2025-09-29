@@ -69,7 +69,7 @@ packages=(
   "smbclient"
   "spotify-launcher"
   "steam"
-  "swappy"
+  "satty"
   "swaybg"
   "swaylock"
   "swaync"
