@@ -112,7 +112,7 @@ packages=(
 )
 
 for package in "${packages[@]}"; do
-  yay -S "$package"
+  yay -S --noconfirm "$package"
   if [[ $? -ne 0 ]]; then
     exit 1
   fi
@@ -129,7 +129,14 @@ rm -rf "$config_dir/nvim/.git"
 
 # Step 5: Creating required directories
 echo "=> Creating directories..."
-mkdir -p "$config_dir/{fuzzel,hypr,kitty,nvim/colors,satty,waybar,yazi,ohmyposh}"
+mkdir -p "$config_dir/fuzzel"
+mkdir -p "$config_dir/hypr"
+mkdir -p "$config_dir/kitty"
+mkdir -p "$config_dir/nvim/colors"
+mkdir -p "$config_dir/satty"
+mkdir -p "$config_dir/waybar"
+mkdir -p "$config_dir/yazi"
+mkdir -p "$config_dir/ohmyposh"
 mkdir -p "$bin_dir"
 mkdir -p "$HOME/Documents/git/fzf"
 
