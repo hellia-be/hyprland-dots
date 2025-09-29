@@ -38,7 +38,7 @@ done
 # Step 2: Installing yay-bin
 echo "=> Installing yay..."
 mkdir -p $HOME/Documents/git
-sudo pacman -S git
+sudo pacman -S --noconfirm git
 cd $HOME/Documents/git/
 git clone https://aur.archlinux.org/yay-bin
 cd yay-bin && makepkg --noconfirm -si
