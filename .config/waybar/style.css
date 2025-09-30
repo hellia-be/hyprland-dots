@@ -50,11 +50,11 @@ window#waybar.top button {
 #workspaces button {
 	box-shadow: none;
 	text-shadow: none;
-	color: @main-fg;
+	color: @alt-fg;
 }
 
 #workspaces button.active {
-	color: @alt-fg;
+	color: @main-fg;
 }
 
 * {
