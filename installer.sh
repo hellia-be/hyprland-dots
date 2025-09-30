@@ -80,6 +80,7 @@ packages=(
   "neovim"
   "nordvpn-bin"
   "nordvpn-gui"
+  "noto-fonts-emoji"
   "nwg-displays"
   "nwg-look"
   "obsidian-bin"
