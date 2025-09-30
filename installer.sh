@@ -163,7 +163,7 @@ cp "$dotfiles_dir/.local/bin/create-protected-zip.sh" "$bin_dir/create-protected
 chmod +x "$bin_dir/create-protected-zip.sh"
 cp "$dotfiles_dir/.local/bin/mount-smb-share.sh" "$bin_dir/mount-smb-share.sh"
 chmod +x "$bin_dir/mount-smb-share.sh"
-ln -sf "$dotfiles_dir/ohmyposh/EDM115-newline.omp.json" "$config_dir/ohmyposh/EDM115-newline.omp.json"
+ln -sf "$dotfiles_dir/.config/ohmyposh/EDM115-newline.omp.json" "$config_dir/ohmyposh/EDM115-newline.omp.json"
 ln -sf "$dotfiles_dir/fzf/fzf-git.sh" "$HOME/Documents/git/fzf/fzf-git.sh"
 chmod +x "$HOME/Documents/git/fzf/fzf-git.sh"
 
