@@ -121,7 +121,8 @@
 	},
 	"tray": {
 		"icon-size": 16,
-		"icon-size-multiplier": 1.6
+		"icon-size-multiplier": 1.6,
+    "spacing": 5
 	},
 	"group/pill#right2": {
 		"orientation": "inherit",
