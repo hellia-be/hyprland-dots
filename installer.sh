@@ -15,7 +15,7 @@ bin_dir="$HOME/.local/bin"
 # Package Removal
 safe_remove() {
   local pkg_name="$1"
-  if pacman -Q "$pkg_name" &> /dev/null; then
+  if pacman -Q "$pkg_name" &>/dev/null; then
     sudo pacman -Rns "$pkg_name" --noconfirm || true
   fi
 }
@@ -73,7 +73,6 @@ packages=(
   "kdeconnect"
   "ly"
   "man-db"
-  "megasync-bin"
   "mpv"
   "neovim"
   "nordvpn-bin"
