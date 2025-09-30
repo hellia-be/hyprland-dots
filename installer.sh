@@ -81,6 +81,7 @@ packages=(
   "neovim"
   "nordvpn-bin"
   "nordvpn-gui"
+  "noto-fonts-cjk"
   "noto-fonts-emoji"
   "nwg-displays"
   "nwg-look"
