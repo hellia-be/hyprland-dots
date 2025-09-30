@@ -16,6 +16,24 @@ alias lt='eza -a --tree --level=1 --icons=always'
 alias shutdown='systemctl poweroff'
 alias vim='nvim'
 
+# better df
+duf_compaible_df() {
+  if [ "$#" -gt 0 ]; then
+    local arg
+    local compatible_args=()
+    for arg in "$@"; do
+      if [[ "$arg" != -* ]]; then
+        compatible_args+=("$arg")
+      fi
+    done
+    duf "${compatible_args[@]}"
+  else
+    duf
+  fi
+}
+
+alias df='duf_compaible_df'
+
 # Prompt
 POSH=agnoster
 eval "$(oh-my-posh init bash --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
@@ -34,11 +52,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
 _fzf_compgen_path() {
-	fd --hidden --exclude .git . "$1"
+  fd --hidden --exclude .git . "$1"
 }
 
 _fzf_compgen_dir() {
-	fd --type=d --hidden --exclude .git . "$1"
+  fd --type=d --hidden --exclude .git . "$1"
 }
 
 source $HOME/Documents/git/fzf/fzf-git.sh
@@ -49,14 +67,14 @@ export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 _fzf_comprun() {
-	local command=$1
-	shift
-	case "$command" in
-		cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-		export|unset) fzf --preview "eval 'echo \${}'" "$@" ;;
-		ssh) fzf --preview 'dig {}' "$@" ;;
-		*) fzf --preview "$show_file_or_dir_preview" "$@" ;;
-	esac
+  local command=$1
+  shift
+  case "$command" in
+  cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+  export | unset) fzf --preview "eval 'echo \${}'" "$@" ;;
+  ssh) fzf --preview 'dig {}' "$@" ;;
+  *) fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
 }
 
 # TheFuck
