@@ -153,6 +153,7 @@ ln -sf "$dotfiles_dir/.config/waybar/config.jsonc" "$config_dir/waybar/config.js
 ln -sf "$dotfiles_dir/.config/waybar/style.css" "$config_dir/waybar/style.css"
 ln -sf "$dotfiles_dir/.config/yazi/keymap.toml" "$config_dir/yazi/keymap.toml"
 ln -sf "$dotfiles_dir/.config/yazi/yazi.toml" "$config_dir/yazi/yazi.toml"
+ln -sf "$dotfiles_dir/.config/fontconfig/fonts.conf" "$config_dir/fontconfig/fonts.conf"
 ln -sf "$dotfiles_dir/.local/bin/powermenu.sh" "$bin_dir/powermenu.sh"
 chmod +x "$bin_dir/powermenu.sh"
 cp "$dotfiles_dir/.local/bin/create-protected-zip.sh" "$bin_dir/create-protected-zip.sh"
