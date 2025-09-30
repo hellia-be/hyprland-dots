@@ -28,6 +28,7 @@ packages=(
   "htop"
   "nano"
   "uwsm"
+  "wireless_tools"
   "wofi"
 )
 
