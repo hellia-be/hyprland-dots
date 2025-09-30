@@ -15,6 +15,7 @@ alias ll='eza -al --icons=always'
 alias lt='eza -a --tree --level=1 --icons=always'
 alias shutdown='systemctl poweroff'
 alias vim='nvim'
+alias ff='fastfetch'
 
 # better df
 duf_compaible_df() {
