@@ -104,7 +104,6 @@ packages=(
   "tela-circle-icon-theme-grey"
   "thefuck"
   "tree"
-  "ttf-cascadia-mono-nerd"
   "ttf-jetbrains-mono-nerd"
   "udiskie"
   "unzip"
