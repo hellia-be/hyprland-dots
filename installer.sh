@@ -136,6 +136,7 @@ mkdir -p "$config_dir/satty"
 mkdir -p "$config_dir/waybar"
 mkdir -p "$config_dir/yazi"
 mkdir -p "$config_dir/ohmyposh"
+mkdir -p "$config_dir/fontconfig"
 mkdir -p "$bin_dir"
 mkdir -p "$HOME/Documents/git/fzf"
 
