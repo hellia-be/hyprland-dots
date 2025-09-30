@@ -175,3 +175,17 @@ cd "$HOME/Documents/git"
 git clone https://github.com/vinceliuice/Graphite-kde-theme.git
 cd Graphite-kde-theme
 sudo ./install.sh -t default -c dark --rimless
+
+# Step 8: Nvidia check
+echo "=> Checking for nvidia"
+NVIDIA_CONFIG_CONTENT=""
+if lspci -k | grep -iE 'nvidia.*vga|3d' &> /dev/null; then
+  sudo pacman -S --noconfirm nvidia-open-dkms
+  NVIDIA_CONFIG_CONTENT=$(cat <<EOF
+env = LIBVA_DRIVER_NAME,nvidia
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+cursor:no_hardware_cursors = true
+env = GBM_BACKEND,nvidia-drm
+EOF
+)
+echo -e "$NVIDIA_CONFIG_CONTENT" > "$config_dir/hypr/nvidia.conf"
