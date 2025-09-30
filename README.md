@@ -27,7 +27,6 @@ Do note that this is based on the way I install my Arch Linux and may not work f
 
 ### Automated
 ```bash
-```bash
 mkdir -p $HOME/Documents/git && cd $HOME/Documents/git && git clone https://github.com/hellia-be/hyprland-dots && cd hyprland-dots && chmod +x installer.sh && ./installer.sh
 ```
 
