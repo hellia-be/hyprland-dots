@@ -12,10 +12,6 @@
 	"passthrough": false,
 	"reload_style_on_change": true,
 	"modules-left": [ "group/pill#left" ],
-	"custom/spacer": {
-		"format": " | ",
-		"tooltip": false
-	},
 	"hyprland/workspaces": {
 		"all-outputs": true,
 		"active-only": false,
@@ -44,7 +40,7 @@
 	},
 	"group/pill#left": {
 		"orientation": "inherit",
-		"modules": [ "hyprland/workspaces", "custom/spacer", "hyprland/window" ]
+		"modules": [ "hyprland/workspaces", "hyprland/window" ]
 	},
 	"idle_inhibitor": {
 		"format": "{icon} ",
@@ -85,7 +81,7 @@
       artist_title=$(playerctl metadata -f '{{ artist }} - {{ title }}' -p spotify | sed 's/&/&amp;/g');
       if [[ $player_status == 'Playing' ]]; then echo '' \"$artist_title | \"; 
       elif [[ $player_status == 'Paused' ]]; then echo '' \"$artist_title | \"; fi",
-    "exec-if": "playerctl status -p spotify",
+    "exec-if": "playerctl status -p spotify &>/dev/null",
     "interval": 1,
     "max-length": 45,
     "on-click": "playerctl play-pause -p spotify"
