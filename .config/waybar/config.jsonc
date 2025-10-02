@@ -129,7 +129,7 @@
 	},
 	"custom/swaync": {
 		"exec-if": "swaync-client --count --skip-wait 1>2 /dev/null",
-		"format": "{icon} {text} | ",
+		"format": " {icon} {text} | ",
 		"tooltip": true,
 		"format-icons": {
 			"notification": "<span foreground='red'><sup></sup></span>",
