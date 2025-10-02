@@ -144,6 +144,7 @@ mkdir -p "$config_dir/ohmyposh"
 mkdir -p "$config_dir/fontconfig"
 mkdir -p "$bin_dir"
 mkdir -p "$HOME/Documents/git/fzf"
+mkdir -p "$HOME/Pictures/Screenshots"
 
 # Step 6: Putting files in the right places
 echo "=> Placing files..."

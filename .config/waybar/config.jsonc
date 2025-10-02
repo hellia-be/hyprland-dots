@@ -13,7 +13,7 @@
 	"reload_style_on_change": true,
 	"modules-left": [ "group/pill#left" ],
 	"custom/spacer": {
-		"format": " ",
+		"format": " | ",
 		"tooltip": false
 	},
 	"hyprland/workspaces": {
@@ -37,7 +37,7 @@
     },
 	},
 	"hyprland/window": {
-		"format": " \uf303 {0}",
+		"format": "{0}",
 		"rotate": 0,
 		"separate-outputs": true,
 		"max-length": 50
@@ -46,9 +46,8 @@
 		"orientation": "inherit",
 		"modules": [ "hyprland/workspaces", "custom/spacer", "hyprland/window" ]
 	},
-	"modules-center": [ "group/pill#center" ],
 	"idle_inhibitor": {
-		"format": "{icon}",
+		"format": "{icon} ",
 		"rotate": 0,
 		"format-icons": {
 			"activated": "\udb80\udd76",
@@ -58,7 +57,7 @@
 		"tooltip": "false"
 	},
 	"clock": {
-		"format": "{:%H:%M}",
+		"format": "{:%A, %B %m %H:%M   }",
 		"rotate": 0,
 		"tooltip-format": "<span>{calendar}</span>",
 		"calendar": {
@@ -84,18 +83,14 @@
     "format": "{}",
     "exec": "player_status=$(playerctl metadata -f '{{ status }}' -p spotify); 
       artist_title=$(playerctl metadata -f '{{ artist }} - {{ title }}' -p spotify | sed 's/&/&amp;/g');
-      if [[ $player_status == 'Playing' ]]; then echo '' $artist_title; 
-      elif [[ $player_status == 'Paused' ]]; then echo '' $artist_title; fi",
+      if [[ $player_status == 'Playing' ]]; then echo '' \"$artist_title | \"; 
+      elif [[ $player_status == 'Paused' ]]; then echo '' \"$artist_title | \"; fi",
     "exec-if": "playerctl status -p spotify",
     "interval": 1,
     "max-length": 45,
     "on-click": "playerctl play-pause -p spotify"
   },
-	"group/pill#center": {
-		"orientation": "inherit",
-		"modules": [ "idle_inhibitor", "custom/spacer", "clock", "custom/spacer", "custom/spotify" ]
-	},
-	"modules-right": [ "group/pill#right1", "custom/spacer", "group/pill#right2", "custom/spacer", "group/pill#right3" ],
+	"modules-right": [ "group/pill#right" ],
 	"custom/display": {
 		"format": "\udb84\udd04 ",
 		"rotate": 0,
@@ -103,7 +98,7 @@
 		"on-click": "nwg-displays"
 	},
 	"pulseaudio": {
-		"format": "{icon} {volume}%",
+		"format": "{icon} {volume}% ",
 		"rotate": 0,
 		"format-muted": "󰖁 ",
 		"on-click": "pavucontrol-qt -t 3",
@@ -126,22 +121,14 @@
 		"format-alt": "{time} {icon}",
 		"format-icons": ["", "", "", "", ""]
 	},
-	"group/pill#right1": {
-		"orientation": "inherit",
-		"modules": [ "pulseaudio", "custom/spacer", "custom/display", "custom/spacer", "battery" ]
-	},
 	"tray": {
 		"icon-size": 16,
 		"icon-size-multiplier": 1.6,
     "spacing": 5
 	},
-	"group/pill#right2": {
-		"orientation": "inherit",
-		"modules": [ "tray" ]
-	},
 	"custom/swaync": {
 		"exec-if": "swaync-client --count --skip-wait 1>2 /dev/null",
-		"format": "{icon} {text}",
+		"format": "{icon} {text} | ",
 		"tooltip": true,
 		"format-icons": {
 			"notification": "<span foreground='red'><sup></sup></span>",
@@ -159,8 +146,23 @@
 		"on-click": "swaync-client -t -sw",
 		"escape": true
 	},
-	"group/pill#right3": {
+  "disk": {
+    "format": " {percentage_used}% | ",
+    "path": "/",
+    "interval": 30
+  },
+  "memory": {
+    "format": "{used:0.1f}g | ",
+    "interval": 5
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "format": "{temperatureC}°C | ",
+    "interval": 5,
+    "tooltip": false
+  },
+	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "custom/swaync", "custom/spacer" ]
+		"modules": [ "temperature", "memory", "disk", "idle_inhibitor", "pulseaudio", "custom/display", "battery", "tray", "custom/swaync", "custom/spotify", "clock" ]
 	}
 }
