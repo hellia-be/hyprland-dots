@@ -24,7 +24,7 @@
 		"modules": [ "hyprland/workspaces" ]
 	},
   "custom/time": {
-    "exec": "date '+%I:%M%P   '",
+    "exec": "date '+%I:%M%P  '",
     "interval": 1,
     "tooltip": "false"
   },
