@@ -114,11 +114,6 @@
 		"on-click": "swaync-client -t -sw",
 		"escape": true
 	},
-  "memory": {
-    "format": "{used:0.1f}g | ",
-    "interval": 5,
-    "tooltip": false
-  },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "format": "{temperatureC}°C | ",
@@ -127,6 +122,6 @@
   },
 	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "temperature", "memory", "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
+		"modules": [ "temperature", "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
 	}
 }
