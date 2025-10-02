@@ -36,7 +36,8 @@
 		"format": "{0}",
 		"rotate": 0,
 		"separate-outputs": true,
-		"max-length": 50
+		"max-length": 50,
+    "tooltip": false
 	},
 	"group/pill#left": {
 		"orientation": "inherit",
@@ -50,7 +51,7 @@
 			"deactivated": "\udb81\udeca"
 		},
 		"justify": "center",
-		"tooltip": "false"
+		"tooltip": false
 	},
   "custom/time": {
     "exec": "date '+%I:%M%P   '",
@@ -82,14 +83,15 @@
   },
   "custom/spotify": {
     "format": "{}",
-    "exec": "player_status=$(playerctl metadata -f '{{ status }}' -p spotify); 
-      artist_title=$(playerctl metadata -f '{{ artist }} - {{ title }}' -p spotify | sed 's/&/&amp;/g');
+    "exec": "player_status=$(playerctl metadata -f '{{ status }}' -p spotify 2>/dev/null); 
+      artist_title=$(playerctl metadata -f '{{ artist }} - {{ title }}' -p spotify 2>/dev/null | sed 's/&/&amp;/g');
       if [[ $player_status == 'Playing' ]]; then echo '' \"$artist_title | \"; 
       elif [[ $player_status == 'Paused' ]]; then echo '' \"$artist_title | \"; fi",
     "exec-if": "playerctl status -p spotify &>/dev/null",
     "interval": 1,
     "max-length": 45,
-    "on-click": "playerctl play-pause -p spotify"
+    "on-click": "playerctl play-pause -p spotify",
+    "tooltip": false
   },
 	"modules-right": [ "group/pill#right" ],
 	"custom/display": {
@@ -120,7 +122,8 @@
 		"format-charging": " {capacity}%",
 		"format-plugged": " {capacity}%",
 		"format-alt": "{time} {icon}",
-		"format-icons": ["", "", "", "", ""]
+		"format-icons": ["", "", "", "", ""],
+    "tooltip": false
 	},
 	"tray": {
 		"icon-size": 16,
@@ -150,7 +153,8 @@
   "disk": {
     "format": " {percentage_used}% | ",
     "path": "/",
-    "interval": 30
+    "interval": 30,
+    "tooltip": false
   },
   "memory": {
     "format": "{used:0.1f}g | ",

@@ -72,6 +72,7 @@ packages=(
   "gvfs"
   "gvfs-smb"
   "gzip"
+  "hyprpolkitagent"
   "jq"
   "jre-openjdk"
   "kdeconnect"
@@ -169,6 +170,19 @@ chmod +x "$bin_dir/mount-smb-share.sh"
 ln -sf "$dotfiles_dir/.config/ohmyposh/EDM115-newline.omp.json" "$config_dir/ohmyposh/EDM115-newline.omp.json"
 ln -sf "$dotfiles_dir/fzf/fzf-git.sh" "$HOME/Documents/git/fzf/fzf-git.sh"
 chmod +x "$HOME/Documents/git/fzf/fzf-git.sh"
+
+# Step 7: Enabling services
+echo "=> Enabling services..."
+user_services=(
+  "hyprpolkitagent"
+)
+
+for service in "${user_services[@]}"; do
+  systemctl --user enable --now "$service"
+  if [[ $? -ne 0 ]]; then
+    exit 1
+  fi
+done
 
 # Step 7: Nvidia check
 echo "=> Checking for nvidia..."
