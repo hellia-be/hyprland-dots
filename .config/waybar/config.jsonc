@@ -117,11 +117,11 @@
 		},
 	},
 	"battery": {
-		"format": "{icon} {capacity}%",
+		"format": "{icon} {capacity}% ",
 		"rotate": 0,
-		"format-charging": " {capacity}%",
-		"format-plugged": " {capacity}%",
-		"format-alt": "{time} {icon}",
+		"format-charging": " {capacity}% ",
+		"format-plugged": " {capacity}% ",
+    "format-disconnected": "",
 		"format-icons": ["", "", "", "", ""],
     "tooltip": false
 	},
@@ -132,7 +132,7 @@
 	},
 	"custom/swaync": {
 		"exec-if": "swaync-client --count --skip-wait 1>2 /dev/null",
-		"format": " {icon} {text} | ",
+		"format": "{icon} {text} | ",
 		"tooltip": true,
 		"format-icons": {
 			"notification": "<span foreground='red'><sup></sup></span>",
