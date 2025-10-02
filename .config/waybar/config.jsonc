@@ -64,12 +64,6 @@
     "tooltip": false
   },
 	"modules-right": [ "group/pill#right" ],
-	"custom/display": {
-		"format": "\udb84\udd04 ",
-		"rotate": 0,
-		"tooltip-format": "\udb84\udd04 Display settings",
-		"on-click": "nwg-displays"
-	},
 	"pulseaudio": {
 		"format": "{icon} {volume}% ",
 		"rotate": 0,
@@ -139,6 +133,6 @@
   },
 	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "temperature", "memory", "disk", "pulseaudio", "custom/display", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
+		"modules": [ "temperature", "memory", "disk", "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
 	}
 }
