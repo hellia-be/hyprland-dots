@@ -75,7 +75,6 @@ packages=(
   "hyprpolkitagent"
   "jq"
   "jre-openjdk"
-  "kdeconnect"
   "ly"
   "man-db"
   "mpv"
