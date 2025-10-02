@@ -19,16 +19,9 @@
 		"disable-scroll": true,
 		"persistent-workspaces": {}
 	},
-	"hyprland/window": {
-		"format": "{0}",
-		"rotate": 0,
-		"separate-outputs": true,
-		"max-length": 50,
-    "tooltip": false
-	},
 	"group/pill#left": {
 		"orientation": "inherit",
-		"modules": [ "hyprland/workspaces", "hyprland/window" ]
+		"modules": [ "hyprland/workspaces" ]
 	},
   "custom/time": {
     "exec": "date '+%I:%M%P   '",
