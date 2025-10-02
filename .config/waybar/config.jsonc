@@ -52,29 +52,34 @@
 		"justify": "center",
 		"tooltip": "false"
 	},
-	"clock": {
-		"format": "{:%A, %B %m %H:%M   }",
-		"rotate": 0,
-		"tooltip-format": "<span>{calendar}</span>",
-		"calendar": {
-			"mode": "month",
-			"mode-mon-col": 3,
-			"on-scroll": 1,
-			"on-click-right": "mode",
-			"format": {
-				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-				"today": "<span color='#ff6699'><b>{}</b></span>"
-			}
-		},
-		"actions": {
-			"on-click-right": "mode",
-			"on-click-forward": "tz_up",
-			"on-click-backward": "tz_down",
-			"on-scroll-up": "shift_up",
-			"on-scroll-down": "shift_down"
-		}
-	},
+  "custom/time": {
+    "exec": "date '+%I:%M%P   '",
+    "interval": 1,
+    "tooltip": "false"
+  },
+  "clock": {
+    "format": "{:%A, %B %d} ",
+    "rotate": 0,
+    "tooltip-format": "<span>{calendar}</span>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
   "custom/spotify": {
     "format": "{}",
     "exec": "player_status=$(playerctl metadata -f '{{ status }}' -p spotify); 
@@ -149,7 +154,8 @@
   },
   "memory": {
     "format": "{used:0.1f}g | ",
-    "interval": 5
+    "interval": 5,
+    "tooltip": false
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
@@ -159,6 +165,6 @@
   },
 	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "temperature", "memory", "disk", "idle_inhibitor", "pulseaudio", "custom/display", "battery", "tray", "custom/swaync", "custom/spotify", "clock" ]
+		"modules": [ "temperature", "memory", "disk", "idle_inhibitor", "pulseaudio", "custom/display", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
 	}
 }
