@@ -114,12 +114,6 @@
 		"on-click": "swaync-client -t -sw",
 		"escape": true
 	},
-  "disk": {
-    "format": " {percentage_used}% | ",
-    "path": "/",
-    "interval": 30,
-    "tooltip": false
-  },
   "memory": {
     "format": "{used:0.1f}g | ",
     "interval": 5,
@@ -133,6 +127,6 @@
   },
 	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "temperature", "memory", "disk", "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
+		"modules": [ "temperature", "memory", "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
 	}
 }
