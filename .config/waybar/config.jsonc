@@ -30,16 +30,6 @@
 		"orientation": "inherit",
 		"modules": [ "hyprland/workspaces", "hyprland/window" ]
 	},
-	"idle_inhibitor": {
-		"format": "{icon} ",
-		"rotate": 0,
-		"format-icons": {
-			"activated": "\udb80\udd76",
-			"deactivated": "\udb81\udeca"
-		},
-		"justify": "center",
-		"tooltip": false
-	},
   "custom/time": {
     "exec": "date '+%I:%M%P   '",
     "interval": 1,
@@ -156,6 +146,6 @@
   },
 	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "temperature", "memory", "disk", "idle_inhibitor", "pulseaudio", "custom/display", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
+		"modules": [ "temperature", "memory", "disk", "pulseaudio", "custom/display", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
 	}
 }
