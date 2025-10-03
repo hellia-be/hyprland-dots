@@ -24,12 +24,12 @@
 		"modules": [ "hyprland/workspaces" ]
 	},
   "custom/time": {
-    "exec": "date '+%I:%M%P  '",
+    "exec": "date '+%-d %I:%M%P  '",
     "interval": 1,
     "tooltip": false
   },
   "clock": {
-    "format": "{:%A, %B %d} ",
+    "format": "{:%A, %B} ",
     "rotate": 0,
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
