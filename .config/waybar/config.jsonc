@@ -26,7 +26,7 @@
   "custom/time": {
     "exec": "date '+%I:%M%P  '",
     "interval": 1,
-    "tooltip": "false"
+    "tooltip": false
   },
   "clock": {
     "format": "{:%A, %B %d} ",
