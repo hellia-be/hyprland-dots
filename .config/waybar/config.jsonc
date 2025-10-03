@@ -29,7 +29,7 @@
     "tooltip": false
   },
   "clock": {
-    "format": "{:%A, %B} ",
+    "format": " | {:%A, %B} ",
     "rotate": 0,
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
@@ -55,8 +55,8 @@
     "format": "{}",
     "exec": "player_status=$(playerctl metadata -f '{{ status }}' -p spotify 2>/dev/null); 
       artist_title=$(playerctl metadata -f '{{ artist }} - {{ title }}' -p spotify 2>/dev/null | sed 's/&/&amp;/g');
-      if [[ $player_status == 'Playing' ]]; then echo '' \"$artist_title | \"; 
-      elif [[ $player_status == 'Paused' ]]; then echo '' \"$artist_title | \"; fi",
+      if [[ $player_status == 'Playing' ]]; then echo ' | ' \"$artist_title\"; 
+      elif [[ $player_status == 'Paused' ]]; then echo ' | ' \"$artist_title\"; fi",
     "exec-if": "playerctl status -p spotify &>/dev/null",
     "interval": 1,
     "max-length": 45,
@@ -96,7 +96,7 @@
 	},
 	"custom/swaync": {
 		"exec-if": "swaync-client --count --skip-wait 1>2 /dev/null",
-		"format": " {icon} {text} | ",
+		"format": " {icon} {text}",
 		"tooltip": true,
 		"format-icons": {
 			"notification": "<span foreground='red'><sup></sup></span>",
