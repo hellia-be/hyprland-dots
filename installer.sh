@@ -55,6 +55,8 @@ packages=(
   "bolt-launcher"
   "brightnessctl"
   "cronie"
+  "cups"
+  "cups-pdf"
   "darktable"
   "duf"
   "discord"
@@ -101,6 +103,7 @@ packages=(
   "swaybg"
   "swaylock"
   "swaync"
+  "system-config-printer"
   "tela-circle-icon-theme-grey"
   "thefuck"
   "tree"
@@ -176,8 +179,19 @@ user_services=(
   "hyprpolkitagent"
 )
 
+services=(
+  "cups"
+)
+
 for service in "${user_services[@]}"; do
   systemctl --user enable --now "$service"
+  if [[ $? -ne 0 ]]; then
+    exit 1
+  fi
+done
+
+for service in "${services[@]}"; do
+  sudo systemctl enable --now "$service"
   if [[ $? -ne 0 ]]; then
     exit 1
   fi
