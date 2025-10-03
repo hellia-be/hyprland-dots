@@ -30,6 +30,7 @@ packages=(
   "uwsm"
   "wireless_tools"
   "wofi"
+  "polkit-kde-agent"
 )
 
 for package in "${packages[@]}"; do
