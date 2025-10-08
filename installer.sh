@@ -72,6 +72,7 @@ packages=(
   "glances"
   "gnome-themes-extra"
   "grim"
+  "grimaur-git"
   "gvfs"
   "gvfs-smb"
   "gzip"
