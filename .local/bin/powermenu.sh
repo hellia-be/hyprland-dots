@@ -12,7 +12,7 @@ Reboot"
 
 # Pipe the options to Fuzzel and capture the user's choice.
 # --dmenu enables dmenu mode, and --prompt customizes the prompt text.
-SELECTION=$(echo -e "${MENU_OPTIONS}" | fsel --dmenu)
+SELECTION=$(echo -e "${MENU_OPTIONS}" | fuzzel --dmenu --prompt="Power Menu:")
 
 # Use a case statement to perform the selected action.
 case "$SELECTION" in
