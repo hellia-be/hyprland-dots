@@ -16,7 +16,7 @@ alias lt='eza -a --tree --level=1 --icons=always'
 alias shutdown='systemctl poweroff'
 alias vim='nvim'
 alias ff='fastfetch'
-alias udate='sudo pacman -Syu && grimaur --git-mirror update'
+alias update='sudo pacman -Syu && grimaur --git-mirror update'
 alias yay='update'
 
 # better df
