@@ -1,0 +1,46 @@
+# Colors
+# highlight_color = "LightBlue"
+cursor = "|"
+
+# App launcher
+terminal_launcher = "kitty -e"
+
+[app_launcher]
+filter_desktop = true              # Filter apps by desktop environment
+list_executables_in_path = false   # Show CLI tools from $PATH
+hide_before_typing = false         # Hide list until you start typing
+match_mode = "fuzzy"               # "fuzzy" or "exact"
+confirm_first_launch = false       # Confirm before launching new apps with -p
+
+# Pin/favorite settings
+# pin_color = "rgb(255,165,0)"       # Color for pin icon (orange)
+# pin_icon = "📌"                     # Icon for pinned apps
+
+# UI customization
+rounded_borders = false
+main_border_color = "White"
+apps_border_color = "White"
+input_border_color = "White"
+
+# Layout (percentages)
+title_panel_height_percent = 30    # Top panel height (10-70%)
+input_panel_height = 3             # Input panel height in lines
+title_panel_position = "top"       # "top", "middle", or "bottom"
+
+# Dmenu mode
+[dmenu]
+password_character = "*"
+exit_if_empty = false
+
+# Clipboard mode
+# [cclip]
+# image_preview = true
+# hide_inline_image_message = false
+
+# Custom keybinds (optional)
+[keybinds]
+up = ["up", { key = "k", modifiers = "ctrl" }]
+down = ["down", { key = "j", modifiers = "ctrl" }]
+select = ["enter"]
+exit = ["esc", { key = "q", modifiers = "ctrl" }]
+# pin = [{ key = "space", modifiers = "ctrl" }]
