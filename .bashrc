@@ -17,7 +17,6 @@ alias shutdown='systemctl poweroff'
 alias vim='nvim'
 alias ff='fastfetch'
 alias update='sudo pacman -Syu && grimaur --git-mirror update'
-alias yay='update'
 
 # better df
 duf_compaible_df() {

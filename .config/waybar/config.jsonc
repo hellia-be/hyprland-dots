@@ -23,13 +23,8 @@
 		"orientation": "inherit",
 		"modules": [ "hyprland/workspaces" ]
 	},
-  "custom/time": {
-    "exec": "date '+%-d %I:%M%P  '",
-    "interval": 1,
-    "tooltip": false
-  },
   "clock": {
-    "format": " | {:%A, %B} ",
+    "format": " | {:%A, %B %d %H:%M} ",
     "rotate": 0,
     "tooltip-format": "<span>{calendar}</span>",
     "calendar": {
@@ -116,6 +111,6 @@
 	},
 	"group/pill#right": {
 		"orientation": "inherit",
-		"modules": [ "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock", "custom/time" ]
+		"modules": [ "pulseaudio", "battery", "tray", "custom/swaync", "custom/spotify", "clock" ]
 	}
 }
