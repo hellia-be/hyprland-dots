@@ -89,7 +89,7 @@ packages=(
   "noto-fonts-emoji"
   "nwg-displays"
   "nwg-look"
-  "obsidian-bin"
+  "obsidian"
   "oh-my-posh-bin"
   "ouch"
   "pavucontrol-qt"
