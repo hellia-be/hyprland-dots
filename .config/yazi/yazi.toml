@@ -11,6 +11,10 @@ open = [
   { run = 'xdg-open "$@"', orphan = true },
 ]
 
+pdf = [
+  { run = 'firefox "$@"', orphan = true },
+]
+
 fallback = [
   { run = 'xdg-open "$@"', orphan = true },
 ]
@@ -22,4 +26,5 @@ rules = [
   { mime = "video/mp4", use = "open" },
   { mime = "video/avi", use = "open" },
   { mime = "video/*", use = "open" },
+  { mime = "application/pdf", use = "pdf" },
 ]
