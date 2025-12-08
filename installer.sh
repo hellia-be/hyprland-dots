@@ -100,6 +100,7 @@ packages=(
   "hyprpolkitagent"
   "jq"
   "jre-openjdk"
+  "libreoffice-fresh"
   "ly"
   "man-db"
   "mpv"
