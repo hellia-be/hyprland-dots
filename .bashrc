@@ -10,13 +10,14 @@ alias grep='grep --color=auto'
 alias cd='z'
 alias cat='bat --paging=never'
 alias ls='eza --git --icons=always'
-alias clean='yay -Rns $(pacman -Qtdq); sudo find / -name "*.pacnew" -o -name "*.pacsave" 2>/dev/null'
+alias clean='yay -Rns $(pacman -Qtdq); sudo paccache -rk3; sudo journalctl --vacuum-time=7d; sudo find / -name "*.pacnew" -o -name "*.pacsave" 2>/dev/null'
 alias ll='eza -al --icons=always'
 alias lt='eza -a --tree --level=1 --icons=always'
 alias shutdown='systemctl poweroff'
 alias vim='nvim'
 alias ff='fastfetch'
 alias update='sudo pacman -Syu && grimaur --git-mirror update'
+alias tree='eza --tree'
 
 # better df
 duf_compaible_df() {
