@@ -11,8 +11,16 @@ open = [
   { run = 'xdg-open "$@"', orphan = true },
 ]
 
+mpv = [
+  { run = 'mpv "$@"' },
+]
+
 pdf = [
   { run = 'firefox "$@"', orphan = true },
+]
+
+libreoffice = [
+  { run = 'libreoffice "$@"', orphan = true },
 ]
 
 fallback = [
@@ -23,8 +31,9 @@ fallback = [
 rules = [
   { name = "*/", use = "folder" },
   { mime = "text/html", use = "open" },
-  { mime = "video/mp4", use = "open" },
-  { mime = "video/avi", use = "open" },
-  { mime = "video/*", use = "open" },
+  { name = "*.mp4", use = "mpv" },
+  { name = "*.avi", use = "mpv" },
+  { mime = "video/*", use = "mpv" },
+  { name = "*.docx", use = "libreoffice" },
   { mime = "application/pdf", use = "pdf" },
 ]
