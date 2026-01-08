@@ -36,4 +36,5 @@ rules = [
   { mime = "video/*", use = "mpv" },
   { name = "*.docx", use = "libreoffice" },
   { mime = "application/pdf", use = "pdf" },
+  { name = "*.pdf", use = "pdf" },
 ]
