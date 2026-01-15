@@ -211,6 +211,8 @@ chmod +x "$bin_dir/mount-smb-share.sh"
 ln -sf "$dotfiles_dir/.config/ohmyposh/EDM115-newline.omp.json" "$config_dir/ohmyposh/EDM115-newline.omp.json"
 ln -sf "$dotfiles_dir/fzf/fzf-git.sh" "$HOME/Documents/git/fzf/fzf-git.sh"
 chmod +x "$HOME/Documents/git/fzf/fzf-git.sh"
+ln -sf "$dotfiles_dir/.local/bin/android-connect.sh" "$bin_dir/android-connect.sh"
+chmod +x "$bin_dir/android-connect.sh"
 
 # Step 7: Enabling services
 echo "=> Enabling services..."
