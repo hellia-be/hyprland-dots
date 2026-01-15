@@ -66,6 +66,8 @@ packages=(
   "grimaur-git"
   "xorg-xinit"
   "nordvpn-gui"
+  "linux-zen"
+  "linux-zen-headers"
 )
 
 for package in "${packages[@]}"; do
@@ -149,6 +151,10 @@ packages=(
   "z"
   "zip"
   "zoxide"
+  "scrcpy"
+  "android-tools"
+  "linux"
+  "linux-headers"
 )
 
 for package in "${packages[@]}"; do
