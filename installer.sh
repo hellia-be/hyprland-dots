@@ -155,6 +155,8 @@ packages=(
   "android-tools"
   "linux"
   "linux-headers"
+  "curseforge"
+  "hytale-launcher-bin"
 )
 
 for package in "${packages[@]}"; do
@@ -240,14 +242,14 @@ done
 
 # Step 7: Nvidia check
 echo "=> Checking for nvidia..."
-if lspci -k | grep -iE 'nvidia' &> /dev/null; then
+if lspci -k | grep -iE 'nvidia' &>/dev/null; then
   sudo pacman -S --noconfirm nvidia-open-dkms
-  cat <<EOF > "$config_dir/hypr/nvidia.conf"
-  env = LIBVA_DRIVER_NAME,nvidia
-  env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-  cursor:no_hardware_cursors = true
-  env = GBM_BACKEND,nvidia-drm
-  EOF
+  cat <<'EOF' >"$config_dir/hypr/nvidia.conf"
+env = LIBVA_DRIVER_NAME,nvidia
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+cursor:no_hardware_cursors = true
+env = GBM_BACKEND,nvidia-drm
+EOF
 else
   touch "$config_dir/hypr/nvidia.conf"
 fi
