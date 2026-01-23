@@ -16,6 +16,8 @@ if adb devices | grep -q "$PHONE_IP:5555"; then
     --turn-screen-off \
     --stay-awake \
     --video-bit-rate=12M \
+    --audio-buffer=40 \
+    --audio-bit-rate=128K \
     --window-title="Android-Hyprland" &
   disown
 else
